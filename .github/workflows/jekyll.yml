@@ -40,8 +40,8 @@ jobs:
         run: |
           export PATH="$HOME/.rbenv/bin:$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
           eval "$(rbenv init -)"
-          rbenv install 3.1.4
-          rbenv global 3.1.4
+          rbenv install 3.3.6
+          rbenv global 3.3.6
           ruby -v
 
       - name: Install Bundler and Dependencies
@@ -52,6 +52,18 @@ jobs:
           gem install bundler
           gem install rexml
           bundle install
+
+      - name: Verify rexml Installation
+        run: |
+          export PATH="$HOME/.rbenv/bin:$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
+          eval "$(rbenv init -)"
+          ruby -rrexml -e "puts 'rexml loaded successfully!'"
+
+      - name: List Installed Gems
+        run: |
+          export PATH="$HOME/.rbenv/bin:$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
+          eval "$(rbenv init -)"
+          gem list
 
       - name: Setup Pages
         id: pages
