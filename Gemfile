@@ -1,5 +1,5 @@
 # gem "github-pages", "~> 232", group: :jekyll_plugins
-gem "jekyll", "~> 3.8.5"
+gem "jekyll", "~> 4.3.4"
 source "https://rubygems.org"
 ruby RUBY_VERSION
 
@@ -11,7 +11,8 @@ ruby RUBY_VERSION
 #
 
 # If you have any plugins, put them here!
-gem 'mundana'
+gem 'mundana', '~> 0.1.2'
+gem 'rexml'
 gem 'wdm', '>= 0.1.0' if Gem.win_platform?
 group :jekyll_plugins do
     gem 'jekyll-feed'
