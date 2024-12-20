@@ -78,6 +78,9 @@ jobs:
         env:
           JEKYLL_ENV: production
 
+      - name: Add CNAME file
+        run: echo 'aiproductstrategist.com' > ./_site/CNAME
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
 
