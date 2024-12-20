@@ -45,7 +45,6 @@ GEM
       logger
     faraday-net_http (3.4.0)
       net-http (>= 0.5.0)
-    ffi (1.17.0)
     ffi (1.17.0-aarch64-linux-gnu)
     ffi (1.17.0-aarch64-linux-musl)
     ffi (1.17.0-arm-linux-gnu)
@@ -237,17 +236,15 @@ GEM
       rb-inotify (~> 0.9, >= 0.9.10)
     logger (1.6.4)
     mercenary (0.3.6)
-    mini_portile2 (2.8.8)
     minima (2.5.1)
       jekyll (>= 3.5, < 5.0)
       jekyll-feed (~> 0.9)
       jekyll-seo-tag (~> 2.1)
     minitest (5.25.4)
+    mundana (0.1.0)
+      jekyll (~> 3.6)
     net-http (0.6.0)
       uri
-    nokogiri (1.17.2)
-      mini_portile2 (~> 2.8.2)
-      racc (~> 1.4)
     nokogiri (1.17.2-aarch64-linux)
       racc (~> 1.4)
     nokogiri (1.17.2-arm-linux)
@@ -284,40 +281,28 @@ GEM
       faraday (>= 0.17.3, < 3)
     securerandom (0.4.1)
     simpleidn (0.2.3)
-    terminal-table (1.6.0)
+    terminal-table (1.8.0)
+      unicode-display_width (~> 1.1, >= 1.1.1)
     typhoeus (1.4.1)
       ethon (>= 0.9.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
+    unicode-display_width (1.8.0)
     uri (1.0.2)
     webrick (1.9.1)
 
 PLATFORMS
   aarch64-linux
-  aarch64-linux-android
   aarch64-linux-gnu
   aarch64-linux-musl
-  aarch64-mingw-ucrt
-  arm-linux-androideabi
+  arm-linux
   arm-linux-gnu
-  arm-linux-gnueabihf
   arm-linux-musl
-  arm-linux-musleabihf
   arm64-darwin
-  riscv64-linux-android
-  riscv64-linux-gnu
-  riscv64-linux-musl
-  ruby
-  x86-cygwin
   x86-linux
-  x86-linux-android
   x86-linux-gnu
   x86-linux-musl
-  x86-mingw-ucrt
-  x86_64-cygwin
   x86_64-darwin
-  x86_64-linux
-  x86_64-linux-android
   x86_64-linux-gnu
   x86_64-linux-musl
 
@@ -327,9 +312,10 @@ DEPENDENCIES
   jekyll-paginate
   jekyll-seo-tag
   jekyll-sitemap
+  mundana
 
 RUBY VERSION
-   ruby 3.3.6p108
+   ruby 3.3.4p94
 
 BUNDLED WITH
    2.6.1
