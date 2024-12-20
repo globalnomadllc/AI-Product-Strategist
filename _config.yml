@@ -1,5 +1,6 @@
 # Site
 name: 'AI Product Strategist'
+title: 'AI Product Strategist'
 description: 'Mundana is a free Jekyll theme for awesome people like you, Medium like.'
 logo: 'assets/images/logo.png'
 favicon: 'assets/images/favicon.ico'
@@ -7,7 +8,8 @@ baseurl: ''
 disqus: 'demowebsite'
 email: 'wowthemesnet@gmail.com'
 mailchimp-list: 'https://wowthemes.us11.list-manage.com/subscribe/post?u=8aeb20a530e124561927d3bd8&amp;id=8c3d2d214b'
-
+domain: ai-product-strategist.github.io
+url: 'https://ai-product-strategist.github.io/'
 include: ["_pages"]
 permalink: /:title/
 
