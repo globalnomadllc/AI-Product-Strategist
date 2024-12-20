@@ -16,56 +16,54 @@ concurrency:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      # Install dependencies to build Ruby manually
       - name: Install Dependencies for Ruby
         run: |
-          sudo apt-get update
-          sudo apt-get install -y build-essential libssl-dev zlib1g-dev \
+          sudo apt update
+          sudo apt install -y build-essential libssl-dev zlib1g-dev \
             libreadline-dev libyaml-dev libsqlite3-dev sqlite3 \
             libxml2-dev libxslt1-dev libcurl4-openssl-dev \
             software-properties-common libffi-dev git
 
-      # Install rbenv and ruby-build
       - name: Install rbenv and ruby-build
         run: |
           git clone https://github.com/rbenv/rbenv.git ~/.rbenv
           echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
           echo 'eval "$(rbenv init -)"' >> ~/.bashrc
-          source ~/.bashrc
           git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
           echo 'export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"' >> ~/.bashrc
-          source ~/.bashrc
 
-      # Install Ruby
-      - name: Install Ruby 3.1.4
+      - name: Load rbenv into PATH
         run: |
+          export PATH="$HOME/.rbenv/bin:$PATH"
+          eval "$(~/.rbenv/bin/rbenv init -)"
           rbenv install 3.1.4
           rbenv global 3.1.4
-          echo "Ruby version installed: $(ruby -v)"
+          ruby -v
 
-      # Install Bundler and Dependencies
-      - name: Install Bundler and Gems
+      - name: Install Bundler and Dependencies
         run: |
+          export PATH="$HOME/.rbenv/bin:$PATH"
+          eval "$(~/.rbenv/bin/rbenv init -)"
           gem install bundler
           bundle install
 
-      # Configure Pages
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
 
-      # Build Jekyll Site
       - name: Build with Jekyll
-        run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
+        run: |
+          export PATH="$HOME/.rbenv/bin:$PATH"
+          eval "$(~/.rbenv/bin/rbenv init -)"
+          bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
         env:
           JEKYLL_ENV: production
 
-      # Upload Artifact
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
 
@@ -73,7 +71,7 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     needs: build
     steps:
       - name: Deploy to GitHub Pages
