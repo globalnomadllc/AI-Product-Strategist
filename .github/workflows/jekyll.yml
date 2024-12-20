@@ -32,24 +32,21 @@ jobs:
       - name: Install rbenv and ruby-build
         run: |
           git clone https://github.com/rbenv/rbenv.git ~/.rbenv
-          echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
-          echo 'eval "$(rbenv init -)"' >> ~/.bashrc
           git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
-          echo 'export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"' >> ~/.bashrc
+          echo 'export PATH="$HOME/.rbenv/bin:$HOME/.rbenv/plugins/ruby-build/bin:$PATH"' >> $GITHUB_ENV
+          echo 'eval "$(rbenv init -)"' >> $GITHUB_ENV
 
       - name: Install Ruby
-        shell: bash
-        env:
-          PATH: ${{ env.HOME }}/.rbenv/bin:${{ env.HOME }}/.rbenv/plugins/ruby-build/bin:$PATH
         run: |
-          source ~/.bashrc
-          rbenv install 3.3.6
-          rbenv global 3.3.6
+          export PATH="$HOME/.rbenv/bin:$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
+          eval "$(~/.rbenv/bin/rbenv init -)"
+          rbenv install 3.1.4
+          rbenv global 3.1.4
           ruby -v
 
       - name: Install Bundler and Dependencies
         run: |
-          export PATH="$HOME/.rbenv/bin:$PATH"
+          export PATH="$HOME/.rbenv/bin:$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
           eval "$(~/.rbenv/bin/rbenv init -)"
           gem install bundler
           gem install rexml
@@ -61,7 +58,7 @@ jobs:
 
       - name: Build with Jekyll
         run: |
-          export PATH="$HOME/.rbenv/bin:$PATH"
+          export PATH="$HOME/.rbenv/bin:$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
           eval "$(~/.rbenv/bin/rbenv init -)"
           bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
         env:
