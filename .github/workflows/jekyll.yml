@@ -37,12 +37,14 @@ jobs:
           git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
           echo 'export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"' >> ~/.bashrc
 
-      - name: Load rbenv into PATH
+      - name: Install Ruby
+        shell: bash
+        env:
+          PATH: ${{ env.HOME }}/.rbenv/bin:${{ env.HOME }}/.rbenv/plugins/ruby-build/bin:$PATH
         run: |
-          export PATH="$HOME/.rbenv/bin:$PATH"
-          eval "$(~/.rbenv/bin/rbenv init -)"
-          rbenv install 3.1.4
-          rbenv global 3.1.4
+          source ~/.bashrc
+          rbenv install 3.3.6
+          rbenv global 3.3.6
           ruby -v
 
       - name: Install Bundler and Dependencies
@@ -50,6 +52,7 @@ jobs:
           export PATH="$HOME/.rbenv/bin:$PATH"
           eval "$(~/.rbenv/bin/rbenv init -)"
           gem install bundler
+          gem install rexml
           bundle install
 
       - name: Setup Pages
