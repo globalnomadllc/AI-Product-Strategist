@@ -1,0 +1,6 @@
+- title: "Home"
+  url: "/"
+- title: "Authors"
+  url: "/authors-list.html"
+- title: "Contact"
+  url: "/contact.html"
