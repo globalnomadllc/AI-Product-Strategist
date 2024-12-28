@@ -7,7 +7,7 @@ image: assets/images/code-on-screen.jpg
 tags: [sticky]
 ---
 
-In today’s fast-paced digital landscape, time is our most precious commodity. Whether you're a software engineer, content creator, or project manager, repetitive tasks often drain our time and energy—time better spent on innovation and strategy. That’s why I built the **Prompt Repository**: a modular, reusable system designed to automate complex workflows, streamline repetitive tasks, and unlock creativity with the help of carefully crafted prompts and Jupyter notebooks.
+Time is our most precious commodity. Whether you're a software engineer, content creator, or product manager, repetitive tasks often drain our time and energy—time better spent on innovation and strategy. That’s why I built the **Prompt Repository**: a modular, reusable system designed to automate complex workflows, streamline repetitive tasks, and unlock creativity with the help of carefully crafted prompts and Jupyter notebooks.
 
 This repository isn’t just a collection of prompts; it’s a productivity booster designed to make your work simpler, faster, and smarter.
 
@@ -24,8 +24,8 @@ I realized that having a **centralized system of reusable prompts** tailored to 
 ## **Introducing the Prompt Repository**
 
 The **Prompt Repository** is a thoughtfully designed toolkit that combines:
-- **Reusable YAML-based prompts**: Structured prompts for specific tasks like summarization, paraphrasing, release notes generation, and more.
-- **Jupyter notebooks**: Interactive workflows that guide you through using these prompts with real-world data.
+- **Reusable YAML-based prompts**: Structured prompts for specific tasks like summarization, paraphrasing, and more.
+- **Jupyter notebooks**: Complete end-to-end solutions for accomplishing common jobs to be done like generating release notes, extracting key insights from a research paper or writing a blog article.
 - **API integrations**: Connect your favorite NLP tools (like OpenAI's GPT models) to supercharge the results.
 
 ---
@@ -93,9 +93,9 @@ The Prompt Repository is perfect for:
 
 If you’ve ever felt overwhelmed by repetitive tasks or wished you could spend more time on creative work, the Prompt Repository is here to help. With reusable prompts, interactive notebooks, and seamless API integration, it’s your all-in-one toolkit for working smarter, not harder.
 
-### [Get Started on GitHub](#)  
+### [Get Started on GitHub](https://github.com/osuthorpe/prompt-library)  
 *Ready to transform the way you work? Clone the repository, explore the prompts, and start automating your workflows today.*
 
 ---
 
-By sharing the Prompt Repository, my hope is that you’ll find the same value in it that I do—fewer headaches, more efficiency, and a greater focus on what truly matters. Let’s streamline, automate, and create together.
+By sharing the Prompt Repository, my hope is that you’ll find the same value in it that I do—fewer headaches, more efficiency, and a greater focus on what truly matters.
