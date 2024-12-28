@@ -4,7 +4,7 @@ title: "7 Prompt Engineering Techniques to Sharpen Your ChatGPT Results"
 author: alex_thorpe
 categories: [ Prompt Engineering ]
 image: assets/images/puppies.jpeg
-tags: [sticky]
+tags: [featured]
 ---
 
 When it comes to bridging human creativity with the power of artificial intelligence, clarity in communication makes all the difference. In other words: if you want useful AI answers, you’ve got to ask great AI questions. This guide walks you through seven prompt engineering techniques—each one accompanied by practical tips and examples—so you can harness ChatGPT (or any large language model) and shape it into your strategic ally.
