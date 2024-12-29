@@ -3,7 +3,7 @@ layout: post
 title: "Transform Your Workflow: Automate Jira Release Notes with AI"
 author: alex_thorpe
 categories: [ Automation, Productivity, Product Management ]
-image: assets/images/jira_issues.png
+image: assets/images/automation_graphic.webp
 tags: [featured]
 ---
 
