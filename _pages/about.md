@@ -1,12 +1,10 @@
 ---
-title: "About"
+title: "About Us"
 layout: page-sidebar
 permalink: "/about.html"
-image: "/assets/images/screenshot.jpg"
-comments: true
+image: false
+comments: false
 ---
-
-# About AI Product Strategist
 
 Welcome to **AI Product Strategist**, your go-to resource for leveraging artificial intelligence to drive innovation, streamline workflows, and deliver impactful results. Whether you're a product manager, developer, or entrepreneur, this blog is designed to help you harness the power of AI to build better products and solve real-world challenges.
 
@@ -44,18 +42,17 @@ At **AI Product Strategist**, we focus on actionable content that adds value to 
 
 ## **Why AI?**
 
-Artificial intelligence isn’t just a buzzword—it’s a game-changer. By mastering AI tools and strategies, you can:
 - Save time by automating repetitive tasks.
 - Enhance decision-making with data-driven insights.
 - Unlock new opportunities for creativity and innovation.
 
-At **AI Product Strategist**, we’re here to help you navigate this exciting frontier and turn possibilities into realities.
+At **AI Product Strategist**, we’re here to help you to cut through the hype and find practical, meaningful ways to incorporate AI.
 
 ---
 
 ## **About the Author**
 
-Hi, I’m **[Your Name]**, the creator of **AI Product Strategist**. With years of experience in product development and a passion for artificial intelligence, I started this blog to share what I’ve learned and help others unlock the full potential of AI. Whether it’s building smarter workflows or crafting innovative strategies, my goal is to empower you to succeed in an AI-driven world.
+Hi, I’m **Alex Thorpe**, the creator of **AI Product Strategist**. With over a decade of experience in product development and a passion for artificial intelligence, I started this blog to share what I’ve learned and help others unlock the full potential of AI. Whether it’s building smarter workflows or crafting innovative strategies, my goal is to empower you to succeed in an AI-driven world.
 
 ---
 

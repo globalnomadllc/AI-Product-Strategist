@@ -21,7 +21,7 @@ GEM
     ffi (1.17.0-x86_64-darwin)
     ffi (1.17.0-x86_64-linux-gnu)
     ffi (1.17.0-x86_64-linux-musl)
-    focus-theme (0.1.4)
+    focus-theme (0.1.5)
       jekyll (~> 4.3)
     forwardable-extended (2.6.0)
     google-protobuf (4.29.2)
@@ -170,7 +170,7 @@ PLATFORMS
   x86_64-linux-musl
 
 DEPENDENCIES
-  focus-theme (~> 0.1.4)
+  focus-theme (~> 0.1.5)
   jekyll (~> 4.3.4)
   jekyll-feed
   jekyll-paginate

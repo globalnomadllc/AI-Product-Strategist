@@ -1,7 +1,6 @@
-authors:
-  alex_thorpe:
-    name: "Alex Thorpe"
-    site: "https://www.alexthorpe.com"
-    avatar: "/assets/images/avatar1.jpg"
-    bio: "Experienced product leader, passionate about AI, ML, and NLP."
-    bluesky: "https://bsky.app/profile/alexthorpe.bsky.social"
+alex_thorpe:
+  name: "Alex Thorpe"
+  site: "https://www.alexthorpe.com"
+  avatar: "assets/images/alex_thorpe_headshot.png"
+  bio: "With over a decade of product experience, I cut through AI hype to deliver real-world solutions that shape the future of work."
+  bluesky: "https://bsky.app/profile/alexthorpe.bsky.social"
