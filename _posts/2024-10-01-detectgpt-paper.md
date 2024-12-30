@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Can you reliable detect machine generated content?"
+title: "Can You Reliably Detect Machine Generated Content?"
 author: alex_thorpe
 categories: [ Product Design, Language Models ]
 image: assets/images/detective-office.jpg
@@ -8,7 +8,7 @@ tags: [DetectGPT, zero-shot detection, probability curvature, AI-generated text,
 ---
 
 
-The **proliferation of AI-generated text** has accelerated rapidly due to the unprecedented growth of large-scale language models such as GPT-3, GPT-3.5, and GPT-4. These models can produce high-quality, human-like text in a matter of seconds, opening up a broad spectrum of applications—from drafting emails to creating entire news articles. However, this surge of synthetic content has sparked concerns regarding **authorship, credibility, and misinformation**. Educators worry about AI-driven plagiarism, journalists and policymakers raise alarms about automated propaganda, and online platforms grapple with moderating machine-generated content at scale.
+The **proliferation of AI-generated text** has accelerated rapidly due to the unprecedented growth of large-scale language models such as OpenAI's ChatGPT, Google's Gemini, and Anthropic's Claude. These models can produce high-quality, human-like text in a matter of seconds, opening up a broad spectrum of applications—from drafting emails to creating entire news articles. However, this surge of synthetic content has sparked concerns regarding **authorship, credibility, and misinformation**. Educators worry about AI-driven plagiarism, journalists and policymakers raise alarms about automated propaganda, and online platforms grapple with moderating machine-generated content at scale.
 
 Recent attempts to address these issues focus on **text classifiers** that distinguish AI-generated passages from human-written text. Yet many solutions require **large, labeled datasets**—text examples clearly marked as *human* or *machine*—to train specialized detectors. Such detectors may fail when encountering new text domains or newly fine-tuned models (a phenomenon known as **distribution shift**). Moreover, **proprietary** text-generating systems (e.g., GPT-4 with undisclosed architecture) limit the feasibility of tailoring detection methods to each new model.
 
