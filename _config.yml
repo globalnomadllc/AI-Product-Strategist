@@ -1,13 +1,13 @@
 # Site
 name: 'AI Product Strategist'
 title: 'AI Product Strategist'
-description: 'Mundana is a free Jekyll theme for awesome people like you, Medium like.'
+description: 'Navigate AI in product management with our expert guides and tips. Stay informed on the latest innovations to boost your product success.'
 logo: 'assets/images/logo.png'
 favicon: 'assets/images/favicon.ico'
 baseurl: ''
-disqus: 'demowebsite'
-email: 'wowthemesnet@gmail.com'
-mailchimp-list: 'https://wowthemes.us11.list-manage.com/subscribe/post?u=8aeb20a530e124561927d3bd8&amp;id=8c3d2d214b'
+disqus: 'ai-product-strategist'
+email: 'contact@aiproductstrategist.com'
+mailchimp-list: 'https://aiproductstrategist.us20.list-manage.com/subscribe/post?u=1843c75170534ac1627a4ee20&amp;id=5d9c5d2ddb&amp;f_id=002147e0f0'
 url: 'https://aiproductstrategist.com'
 include: ["_pages"]
 permalink: /:title/
