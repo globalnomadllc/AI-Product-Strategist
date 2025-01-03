@@ -26,7 +26,7 @@ Yet, most release notes are either overly technical or vague to the point of use
 
 ## **How the Jira Release Notes Generator Works**
 
-This tool uses **Jira exports** or direct **API integration** to fetch issue data, summarizes each issue with OpenAI’s GPT-4, and organizes them into categories like *General Bug Fixes* or *Whiteboard Updates*. The result? A set of clean, concise, and professionally formatted HTML release notes you can copy-paste into emails, blogs, or documentation.
+This tool uses **Jira exports** or direct **API integration** to fetch issue data, summarizes each issue with OpenAI’s GPT-4, and organizes them into categories you define like *Security* or *General Bug Fixes*. The result? A set of clean, concise, and professionally formatted HTML release notes you can copy-paste into emails, blogs, or documentation.
 
 ---
 
