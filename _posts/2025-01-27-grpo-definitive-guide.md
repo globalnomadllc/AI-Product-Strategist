@@ -138,15 +138,15 @@ Designing effective reward functions is critical for guiding the model toward de
 $$r = \alpha \cdot \text{Accuracy} + \beta \cdot \text{Readability} + \gamma \cdot \text{Novelty}$$
 
    - **Adjust Weights**: The coefficients ($\alpha, \beta, \gamma$) determine the importance of each factor. For example:
-     - \( $\alpha = 0.7$ \) (prioritize accuracy)
-     - \( $\beta = 0.2$ \) (prioritize readability)
-     - \( $\gamma = 0.1$ \) (prioritize novelty)
+     - \( $$\alpha = 0.7$$ \) (prioritize accuracy)
+     - \( $$\beta = 0.2$$ \) (prioritize readability)
+     - \( $$\gamma = 0.1$$ \) (prioritize novelty)
 
    - **Example**:
      - Input: "Explain how solar panels work."
      - Output: "Solar panels convert sunlight into electricity using photovoltaic cells."  
        - **Accuracy = 1.0**, **Readability = 0.9**, **Novelty = 0.7**  
-       - Combined Reward: ($r = 0.7 \cdot 1.0 + 0.2 \cdot 0.9 + 0.1 \cdot 0.7 = 0.93$)
+       - Combined Reward: ($$r = 0.7 \cdot 1.0 + 0.2 \cdot 0.9 + 0.1 \cdot 0.7 = 0.93$$)
 
 ---
 
@@ -187,14 +187,14 @@ Think of the advantage as the "relative score" of an output within a group. It�
 
 When the model generates multiple outputs for a given input, each output gets a reward. However, the raw reward doesn’t tell us how much better one output is compared to others in the group. That’s where the advantage comes in—it adjusts the reward to reflect how it compares to the group average.
 
-The formula for the advantage ($A_i$) is:
+The formula for the advantage ($$A_i$$) is:
 
 $$A_i = \frac{r_i - \text{mean}(\{r_1, r_2, r_3\})}{\text{std}(\{r_1, r_2, r_3\})}$$
 
 Here:
-- \( $r_i$ \) = the reward of a specific output.
-- \( $\text{mean}(\{r_1, r_2, r_3\})$ \) = the average reward of all outputs in the group.
-- \( $\text{std}(\{r_1, r_2, r_3\})$ \) = the standard deviation of the rewards, which measures how spread out the rewards are.
+- \( $$r_i$$ \) = the reward of a specific output.
+- \( $$\text{mean}(\{r_1, r_2, r_3\})$$ \) = the average reward of all outputs in the group.
+- \( $$\text{std}(\{r_1, r_2, r_3\})$$ \) = the standard deviation of the rewards, which measures how spread out the rewards are.
 
 ---
 
@@ -223,9 +223,9 @@ The **standard deviation** measures how much the rewards vary from the mean. A s
 $$\text{std} = \sqrt{\frac{(0.9 - 0.6667)^2 + (0.7 - 0.6667)^2 + (0.4 - 0.6667)^2}{3}}$$
 
 Breaking it down:
-- \( $(0.9 - 0.6667)^2 = 0.05445$ \)
-- \( $(0.7 - 0.6667)^2 = 0.00111$ \)
-- \( $(0.4 - 0.6667)^2 = 0.07112$ \)
+- \( $$(0.9 - 0.6667)^2 = 0.05445$$ \)
+- \( $$(0.7 - 0.6667)^2 = 0.00111$$ \)
+- \( $$(0.4 - 0.6667)^2 = 0.07112$$ \)
 
 Adding these up:
 $$\text{std} = \sqrt{\frac{0.05445 + 0.00111 + 0.07112}{3}} = \sqrt{0.04223} = 0.2052$$
@@ -251,7 +251,7 @@ $$A_3 = \frac{0.4 - 0.6667}{0.2052} = \frac{-0.2667}{0.2052} = -1.302$$
 
 4. **Step 4: Interpret the Advantages**
 
-| **Output**            | **Reward (\( r_i \))** | **Advantage (\( A_i \))** |
+| **Output**            | **Reward ( $$r_i$$ )** | **Advantage ( $$A_i$$ )** |
 |-----------------------|------------------------|---------------------------|
 | "The speed is 60 mph." | 0.9                   | 1.137                     |
 | "60 mph."              | 0.7                   | 0.162                     |
@@ -277,7 +277,7 @@ In GRPO, the advantage is used in combination with the policy ratio to determine
 
 ### **4. Policy Ratios and Clipping**
 
-In GRPO, the model compares how confident it is in producing each output under the current policy (\( \pi_\theta \)) versus the previous (or old) policy (\( \pi_\theta^{old} \)). This comparison helps determine whether the model is improving its predictions and how much adjustment is needed during training.
+In GRPO, the model compares how confident it is in producing each output under the current policy ( $$\pi_\theta$$ ) versus the previous (or old) policy ( $$\pi_\theta^{old}$$ ). This comparison helps determine whether the model is improving its predictions and how much adjustment is needed during training.
 
 ---
 
@@ -287,9 +287,11 @@ The **policy ratio** is the measure of how the model's confidence in an output h
 
 $$\text{Policy Ratio} = \frac{\pi_\theta(o_i | q)}{\pi_\theta^{old}(o_i | q)}$$
 
-Where:
-- $\pi_\theta(o_i | q)$ : The probability the current policy assigns to output \( $o_i$ \) given input \( $q$ \).
-- $\pi_\theta^{old}(o_i | q)$ : The probability the old policy assigns to output \( $o_i$ \) given input \( $q$ \).
+**Where:**
+
+- $$\pi_\theta(o_i \mid q)$$: The probability the current policy assigns to output \($$o_i$$\) given input \($$q$$\).
+- $$\pi_\theta^{\text{old}}(o_i \mid q)$$: The probability the old policy assigns to output \($$o_i$$\) given input \($$q$$\).
+
 
 The ratio tells us:
 - **Greater than 1**: The model is more confident in the output under the new policy than under the old policy.
@@ -302,7 +304,7 @@ The ratio tells us:
 
 Consider the following scenario:
 
-| **Output**            | **New Policy ($\pi_\theta$)** | **Old Policy ($\pi_\theta^{old}$)** | **Policy Ratio** |
+| **Output**            | **New Policy ($$\pi_\theta$$)** | **Old Policy ($$\pi_\theta^{old}$$)** | **Policy Ratio** |
 |-----------------------|-----------------------------------|-----------------------------------------|------------------|
 | "The speed is 60 mph." | 0.35                            | 0.30                                    | 1.167            |
 | "60 mph."              | 0.45                            | 0.40                                    | 1.125            |
@@ -339,13 +341,13 @@ To address this, **clipping** is used to limit the policy ratio to a predefined 
 
 $$\text{Clipped Ratio} = \min(\max(\text{Policy Ratio}, 1 - \epsilon), 1 + \epsilon)$$
 
-Where \( $\epsilon$ \) is the clipping threshold (e.g., 0.2). This means the ratio is constrained to \($[0.8, 1.2]$\).
+Where \( $$\epsilon$$ \) is the clipping threshold (e.g., 0.2). This means the ratio is constrained to \($$[0.8, 1.2]$$\).
 
 ---
 
 #### **Clipping Example**
 
-Using the previous policy ratios and a clipping threshold ( $\epsilon = 0.2$ ):
+Using the previous policy ratios and a clipping threshold ( $$\epsilon = 0.2$$ ):
 
 | **Output**            | **Policy Ratio** | **Clipped Ratio** |
 |-----------------------|------------------|-------------------|
@@ -370,8 +372,6 @@ Using the previous policy ratios and a clipping threshold ( $\epsilon = 0.2$ ):
 
 ---
 
-#### **Connection to GRPO**
-
 In GRPO, the clipped policy ratio is combined with the **advantage** to determine how much each output should influence the model's training. This ensures that:
 - Outputs with higher advantages and reasonable policy ratios are prioritized.
 - Outputs with low advantages or extreme policy ratios have a reduced impact on the model.
@@ -395,10 +395,10 @@ $$\text{GRPO Term} = \text{min}(\text{Policy Ratio}, \text{Clipped Ratio}) \time
 Where:
 - **Policy Ratio**: The change in the model's confidence for an output compared to the old policy.
 - **Clipped Ratio**: The policy ratio constrained to a predefined range (e.g., [0.8, 1.2]) to ensure stability.
-- **\( $A_i$ \)**: The advantage of the output, representing how much better or worse the output is compared to others in the group.
+- **\($$A_i$$\)**: The advantage of the output, representing how much better or worse the output is compared to others in the group.
 
 The GRPO term balances these factors:
-1. Outputs with high advantages ( $A_i$ ) and policy ratios close to the clipping range are given more weight.
+1. Outputs with high advantages ($$A_i$$) and policy ratios close to the clipping range are given more weight.
 2. Outputs with low or negative advantages, or extreme policy ratios, are given less weight.
 
 ---
@@ -407,28 +407,30 @@ The GRPO term balances these factors:
 
 Given the following data:
 
-| **Output**            | **Policy Ratio** | **Clipped Ratio** | **Advantage ( $A_i$ )** |
+| **Output**            | **Policy Ratio** | **Clipped Ratio** | **Advantage ($$A_i$$)** |
 |-----------------------|------------------|-------------------|---------------------------|
 | "The speed is 60 mph." | 1.167            | 1.167             | 1.137                     |
 | "60 mph."              | 1.125            | 1.125             | 0.162                     |
 | "The car goes 50 mph." | 0.667            | 0.800             | -1.302                    |
 
+---
+
 1. **For Output 1 ("The speed is 60 mph.")**:
-   - \( $\text{Policy Ratio} = 1.167$ \)
-   - \( $\text{Clipped Ratio} = 1.167$ \)
-   - \( $\text{Advantage} = 1.137$ \)
+   - \( $$\text{Policy Ratio} = 1.167$$ \)
+   - \( $$\text{Clipped Ratio} = 1.167$$ \)
+   - \( $$\text{Advantage} = 1.137$$ \)
 $$\text{GRPO Term}_1 = \text{min}(1.167, 1.167) \times 1.137 = 1.167 \times 1.137 = 1.328$$
 
 2. **For Output 2 ("60 mph.")**:
-   - \( $\text{Policy Ratio} = 1.125$ \)
-   - \( $\text{Clipped Ratio} = 1.125$ \)
-   - \( $\text{Advantage} = 0.162$ \)
+   - \( $$\text{Policy Ratio} = 1.125$$ \)
+   - \( $$\text{Clipped Ratio} = 1.125$$ \)
+   - \( $$\text{Advantage} = 0.162$$ \)
 $$\text{GRPO Term}_2 = \text{min}(1.125, 1.125) \times 0.162 = 1.125 \times 0.162 = 0.182$$
 
 3. **For Output 3 ("The car goes 50 mph.")**:
-   - \( $\text{Policy Ratio} = 0.667$ \)
-   - \( $\text{Clipped Ratio} = 0.800$ \)
-   - \( $\text{Advantage} = -1.302$ \)
+   - \( $$\text{Policy Ratio} = 0.667$$ \)
+   - \( $$\text{Clipped Ratio} = 0.800$$ \)
+   - \( $$\text{Advantage} = -1.302$$ \)
 $$\text{GRPO Term}_3 = \text{min}(0.667, 0.800) \times -1.302 = 0.667 \times -1.302 = -1.042$$
 
 ---
@@ -454,17 +456,6 @@ $$\text{GRPO Term}_3 = \text{min}(0.667, 0.800) \times -1.302 = 0.667 \times -1.
 
 ---
 
-#### **Why is the GRPO Term Important?**
-
-The GRPO term serves as the final score that determines how much each output contributes to the model's learning. It ensures:
-1. **Balanced Updates**: Outputs with higher advantages and reasonable policy ratios are weighted more, guiding the model toward better performance.
-2. **Stability**: Clipping prevents extreme policy ratios from dominating the training process.
-3. **Focus on Improvement**: Negative GRPO terms ensure the model learns from its mistakes by reducing the influence of poor outputs.
-
-By combining the clipped policy ratio and the advantage, the GRPO term effectively balances improvement with stability, enabling efficient and scalable reinforcement learning.
-
----
-
 ### **6. Final GRPO Objective**
 
 The **GRPO objective** is the final metric used to evaluate how well the model is learning during training. It combines the contributions of all the GRPO terms and adjusts them using a penalty term called the **KL divergence penalty**. This ensures the model learns effectively while maintaining stability and avoiding overfitting.
@@ -473,15 +464,15 @@ The **GRPO objective** is the final metric used to evaluate how well the model i
 
 #### **Formula**
 
-The GRPO objective ( $J_{GRPO}$ ) is calculated as:
+The GRPO objective ( $$J_{GRPO}$$ ) is calculated as:
 
 $$J_{GRPO} = \frac{\sum \text{GRPO Term}}{G} - \beta \cdot D_{KL}$$
 
 Where:
-- \( $\sum \text{GRPO Term}$ \): The sum of all GRPO terms for the group of outputs.
-- \( $G$ \): The number of outputs in the group (used to calculate the average GRPO term).
-- \( $\beta$ \): A hyperparameter that controls the weight of the KL divergence penalty.
-- \($D_{KL}$ \): The KL divergence, which measures how much the current policy ( $\pi_\theta$ ) has changed from a reference policy ( $\pi_\text{ref}$ ).
+- \( $$\sum \text{GRPO Term}$$ \): The sum of all GRPO terms for the group of outputs.
+- \( $$G$$ \): The number of outputs in the group (used to calculate the average GRPO term).
+- \( $$\beta$$ \): A hyperparameter that controls the weight of the KL divergence penalty.
+- \( $$D_{KL}$$ \): The KL divergence, which measures how much the current policy ( $$\pi_\theta$$ ) has changed from a reference policy ( $$\pi_\text{ref}$$ ).
 
 ---
 
@@ -507,13 +498,13 @@ $$\text{Average GRPO Term} = \frac{1.328 + 0.182 - 1.042}{3} = \frac{0.468}{3} =
 
 2. **Step 2: Compute the KL Divergence Penalty**
 
-The KL divergence ( $D_{KL}$ ) measures how much the current policy has deviated from a reference policy (e.g., the old policy). The penalty ensures the model doesn't make overly drastic changes, maintaining stability during training.
+The KL divergence ( $$D_{KL}$$ ) measures how much the current policy has deviated from a reference policy (e.g., the old policy). The penalty ensures the model doesn't make overly drastic changes, maintaining stability during training.
 
 $$\text{KL Penalty} = \beta \cdot D_{KL}$$
 
 Given:
-- \( $\beta = 0.1$ \) (hyperparameter controlling the penalty weight)
-- \( $D_{KL} = 0.05$ \) (calculated KL divergence)
+- \( $$\beta = 0.1$$ \) (hyperparameter controlling the penalty weight)
+- \( $$D_{KL} = 0.05$$ \) (calculated KL divergence)
 
 $$\text{KL Penalty} = 0.1 \times 0.05 = 0.005$$
 
@@ -542,112 +533,11 @@ The GRPO objective is a single score that determines how well the model is impro
 
 ---
 
-#### **Interpreting the Final Value**
-
-In this example:
-- A final GRPO objective of \( $J_{GRPO} = 0.151$ \) indicates that the model has achieved modest improvement, factoring in both the outputs' contributions and the stability penalty.
-
----
-
-#### **Connection to the Overall Training Process**
-
 The GRPO objective is computed at each step of training and used to update the model's policy:
-- A higher \( $J_{GRPO}$ \) value indicates better learning progress.
-- If \( $J_{GRPO}$ \) is too low, it might signal that rewards or hyperparameters need adjustment (e.g., the penalty weight \( $\beta$ \) or the clipping threshold).
+- A higher \( $$J_{GRPO}$$ \) value indicates better learning progress.
+- If \( $$J_{GRPO}$$ \) is too low, it might signal that rewards or hyperparameters need adjustment (e.g., the penalty weight \( $$\beta$$ \) or the clipping threshold).
 
 The GRPO objective ensures that the model improves outputs in a controlled, efficient, and scalable manner.
-
----
-
-### **6. Final GRPO Objective**
-
-The **GRPO objective** is the final score that tells us how well the model is learning during training. It combines all the contributions from the outputs (using GRPO terms) and adjusts for how much the model’s behavior has changed compared to before. This balance helps the model improve without making wild or unpredictable changes.
-
----
-
-#### **What Does the GRPO Objective Do?**
-
-The GRPO objective works like a report card for the model at each step of training:
-- It rewards the model for generating better outputs (based on the GRPO terms).
-- It gently penalizes the model if it changes its behavior too much or too quickly (using something called a "penalty").
-
-This ensures the model learns steadily, improving over time while staying stable.
-
----
-
-#### **The Formula**
-
-Here’s how the GRPO objective is calculated:
-
-$$J_{GRPO} = \frac{\text{Sum of GRPO Terms}}{\text{Number of Outputs}} - \text{Penalty for Big Changes}$$
-
-Let’s break it into two parts:
-1. **Sum of GRPO Terms**: Adds up the contributions (GRPO terms) for all outputs the model generated.
-2. **Penalty for Big Changes**: Reduces the score if the model’s behavior has changed too much compared to how it was performing before. This is to ensure stability.
-
----
-
-#### **Step-by-Step Example**
-
-Let’s calculate the GRPO objective for the following outputs:
-
-| **Output**            | **GRPO Term** |
-|-----------------------|---------------|
-| "The speed is 60 mph." | 1.328         |
-| "60 mph."              | 0.182         |
-| "The car goes 50 mph." | -1.042        |
-
-1. **Step 1: Average the GRPO Terms**
-   - First, we calculate the **average GRPO term** by adding up the GRPO terms and dividing by the number of outputs.
-   
-$$\text{Average GRPO Term} = \frac{1.328 + 0.182 - 1.042}{3} = \frac{0.468}{3} = 0.156$$
-
-   - This tells us that, on average, the model’s outputs were slightly better than the baseline.
-
-2. **Step 2: Calculate the Penalty**
-   - To prevent the model from changing too drastically, we apply a small penalty for how much its behavior has shifted. This penalty is calculated using a term called "KL divergence," which measures how much the new behavior differs from the old behavior.
-   - In this case:
-     - Penalty weight ( $\beta$ ) = 0.1
-     - KL divergence ( $D_{KL}$ ) = 0.05
-
-$$\text{Penalty} = \beta \times D_{KL} = 0.1 \times 0.05 = 0.005$$
-
-3. **Step 3: Subtract the Penalty**
-   - Finally, subtract the penalty from the average GRPO term to get the GRPO objective:
-
-$$J_{GRPO} = 0.156 - 0.005 = 0.151$$
-
----
-
-#### **What Does This Score Mean?**
-
-In this example:
-- The **average GRPO term (0.156)** shows that the model is improving its outputs slightly better than the baseline.
-- The **penalty (0.005)** ensures the model isn’t making large, unstable changes.
-- The **final GRPO objective (0.151)** tells us the model is learning steadily and improving in a controlled way.
-
----
-
-#### **Why is This Important?**
-
-1. **Balances Improvement and Stability**:
-   - The GRPO objective rewards the model for generating better outputs but discourages it from changing too much at once.
-
-2. **Encourages Gradual Learning**:
-   - By keeping the changes small, the model improves step by step, making the training process smoother and more reliable.
-
-3. **Prevents Overfitting**:
-   - Overfitting happens when the model focuses too much on a specific set of data, becoming less useful for new data. The penalty helps prevent this by keeping the model’s updates balanced.
-
----
-
-#### **Connection to the Training Process**
-
-The GRPO objective is calculated after every training step. It guides the model by telling it:
-- Which outputs it should prioritize improving.
-- When it should slow down if it’s changing too quickly.
-
-This process ensures the model gets better over time without becoming unstable, making it a reliable tool for tasks like generating text, answering questions, or making decisions.
 
 ---
 

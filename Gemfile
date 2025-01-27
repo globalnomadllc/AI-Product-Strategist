@@ -11,8 +11,7 @@ ruby RUBY_VERSION
 #
 
 # If you have any plugins, put them here!
-gem 'focus-theme', '~> 0.1.5'
-gem 'jekyll-sitemap'
+gem 'focus-theme', '~> 0.1.7'
 gem 'rexml'
 gem 'wdm', '>= 0.1.0' if Gem.win_platform?
 group :jekyll_plugins do
