@@ -7,7 +7,7 @@ categories:
   - Reinforcement Learning
   - Machine Learning
   - Model Optimization
-image: assets/images/grpo.jpeg
+image: assets/images/grpo.jpg
 tags: 
   - GRPO
   - Reinforcement Learning
